@@ -1,6 +1,7 @@
 <template>
   <div class="list-right">
-    <div class="dd" v-for="item in goods" :key="item.list">
+    <!-- <div class="dd" v-for="item in goods" :key="item.list"> -->
+      <div class="dd">
       <a :name="item.list"></a>
       <div class="title">{{item.title}}</div>
       <ul>
