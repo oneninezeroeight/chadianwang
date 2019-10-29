@@ -1,7 +1,6 @@
 <template>
   <div class="list-right">
-    <!-- <div class="dd" v-for="item in goods" :key="item.list"> -->
-      <div class="dd">
+    <div class="dd" v-for="item in goods" :key="item.list">
       <a :name="item.list"></a>
       <div class="title">{{item.title}}</div>
       <ul>
@@ -26,11 +25,32 @@ export default {
     let { data } = await this.$axios.get("http://localhost:1907/list/");
     this.goods = data[0];
 
-    window.console.log(data);
+    window.console.log(this.goods);
   }
 };
 </script>
 <style lang='scss' scoped>
-.rigth {
+.list-right {
+  .dd {
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      li {
+        width: 31%;
+        background: #fff;
+        margin-bottom: 0.375rem;
+        margin-left: 0.375rem;
+        img {
+          width: 5.25rem;
+          height: 5.25rem;
+        }
+        p {
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
 }
 </style>
