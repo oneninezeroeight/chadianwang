@@ -42,9 +42,9 @@ let router = new Router({
             path: '/News',
             component: news,
             //权限设置，没有登录就不能进去
-            meta: {
-                requiresAuth: true
-            }
+            // meta: {
+            //     requiresAuth: true
+            // }
 
         },
         {
@@ -52,18 +52,18 @@ let router = new Router({
             path: '/Cart',
             component: cart,
             //权限设置，没有登录就不能进去
-            meta: {
-                requiresAuth: true
-            }
+            // meta: {
+            //     requiresAuth: true
+            // }
         },
         {
             name: 'mine',
             path: '/Mine',
             component: mine,
             //权限设置，没有登录就不能进去
-            meta: {
-                requiresAuth: true
-            }
+            // meta: {
+            //     requiresAuth: true
+            // }
         },
         {
             name: 'goods',

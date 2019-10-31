@@ -1,7 +1,7 @@
 <template>
   <div class="fenlei">
     <ul>
-      <li v-for="item in fenlei" :key="item.text">
+      <li v-for="item in fenlei" :key="item.text" @click="goto">
         <img :src="item.img" alt />
         <p>{{item.text}}</p>
       </li>
@@ -65,6 +65,11 @@ export default {
         }
       ]
     };
+  },
+  methods:{
+    goto(){
+       this.$router.push({ name: "list", params: {} });
+    }
   }
 };
 </script>

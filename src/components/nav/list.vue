@@ -11,7 +11,7 @@
     <div class="list">
       <div class="list">
         <ul>
-          <li v-for="item in list" :key="item.id">
+          <li v-for="item in list" :key="item.id" @click="gotogoods(item.id)">
             <div class="l-tp">
               <img :src="item.src" alt />
             </div>
@@ -48,9 +48,16 @@ export default {
     let test = data.data[0];
     this.list = test[0];
     // window.console.log(this.list);
+  },
+
+  methods: {
+    gotogoods(id) {
+      this.$router.push({ name: "goods", params: { id } });
+    }
   }
 };
 </script>
+
 <style lang='scss' scoped>
 .nav-top {
   background: rgba(192, 192, 192, 0.2);
