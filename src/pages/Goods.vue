@@ -1,22 +1,24 @@
 <template>
   <div class="goods">
-    <div class="header">
-      <div class="left">
-        <van-icon name="arrow-left" />
-      </div>
-      <div class="center">
-        <van-tabs v-model="active">
-          <van-tab title="商品"></van-tab>
-          <van-tab title="详情"></van-tab>
-          <van-tab title="评价"></van-tab>
-          <van-tab title="推荐"></van-tab>
-        </van-tabs>
-      </div>
-      <div class="right">
-        <span class="s1">
-          <van-icon name="shopping-cart-o" info="9" />
-        </span>
-        <van-icon name="https://m.chadian.com/assets/img/i-selectHead-icon.png" />
+    <div class="dw">
+      <div class="header">
+        <div class="left">
+          <van-icon name="arrow-left" />
+        </div>
+        <div class="center">
+          <van-tabs v-model="active">
+            <van-tab title="商品"></van-tab>
+            <van-tab title="详情"></van-tab>
+            <van-tab title="评价"></van-tab>
+            <van-tab title="推荐"></van-tab>
+          </van-tabs>
+        </div>
+        <div class="right">
+          <span class="s1">
+            <van-icon name="shopping-cart-o" info="9" />
+          </span>
+          <van-icon name="https://m.chadian.com/assets/img/i-selectHead-icon.png" />
+        </div>
       </div>
     </div>
     <van-swipe class="goods-swipe" :autoplay="3000">
@@ -121,20 +123,30 @@ export default {
 .goods {
   padding-bottom: 50px;
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .left {
-      flex: 1;
-    }
-    .center {
-      flex: 5;
-    }
-    .right {
-      flex: 1;
+  .dw {
+    position: fixed;
+    top: 0;
+    z-index: 30;
+    background: #fff;
+    width: 100%;
+    .header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      background: #fff;
+      width: 100%;
+      .left {
+        flex: 1;
+      }
+      .center {
+        flex: 5;
+      }
+      .right {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 
