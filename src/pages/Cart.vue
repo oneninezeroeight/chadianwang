@@ -8,7 +8,7 @@
               <div>购物车</div>
               <div>
                 共
-                <span>6</span>件宝贝
+                <span>{{cartlength}}</span>件宝贝
               </div>
             </div>
           </div>
@@ -205,6 +205,20 @@ export default {
       checked: true,
       value: 1
     };
+  },
+
+  methods: {
+    goods() {
+      let goods = {};
+      this.$store.commit("cartlist", goods);
+    }
+  },
+
+  computed: {
+    cartlength() {
+      this.goods();
+      return this.$store.getters.cartlength;
+    }
   },
   components: {
     dibu

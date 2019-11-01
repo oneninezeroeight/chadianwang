@@ -11,7 +11,7 @@
     <div class="list">
       <div class="list">
         <ul>
-          <li v-for="item in list" :key="item.id" @click="gotogoods(item.id)">
+          <li v-for="item in test" :key="item.id" @click="gotogoods(item._id)">
             <div class="l-tp">
               <img :src="item.src" alt />
             </div>
@@ -35,7 +35,7 @@ export default {
         { text1: "视频", text2: "产品更直观" },
         { text1: "便宜好货", text2: "低价抢购" }
       ],
-      list: []
+      test: []
     };
   },
   async created() {
@@ -45,14 +45,15 @@ export default {
         act: "index"
       }
     });
-    let test = data.data[0];
-    this.list = test[0];
-    // window.console.log(this.list);
+    this.test = data.data;
+    // this.list = test[0];
+    window.console.log(data);
   },
 
   methods: {
     gotogoods(id) {
       this.$router.push({ name: "goods", params: { id } });
+      window.console.log(id);
     }
   }
 };

@@ -23,10 +23,18 @@ export default {
   async created() {
     //发起ajax请求
     let { data } = await this.$axios.get("http://localhost:1907/list/");
-    this.goods = data[0];
 
-    window.console.log(this.goods);
+    this.goods = data[0];
+    // this.getcartlist();
+    // window.console.log(this.goods);
   }
+  // methods: {
+  //   async getcartlist() {
+  //     let res = await this.$axios.get("http://localhost:1907/goods/cart");
+  //     let res1 = res.data;
+  //     window.console.log(res1);
+  //   }
+  // }
 };
 </script>
 <style lang='scss' scoped>

@@ -4,6 +4,7 @@ import App from './App.vue'
 Vue.config.productionTip = false
 //引入建好的router文件夹
 import router from './router';
+import store from './store';
 
 //引入element-ui
 import ElementUI from 'element-ui';
@@ -16,6 +17,8 @@ import 'vant/lib/index.css';
 
 Vue.use(Vant);
 
+
+
 //引入发送网络请求的axios
 import axios from 'axios';
 //把axios放在Vue的原型对象上面
@@ -24,5 +27,6 @@ Vue.prototype.$axios = axios;
 new Vue({
   //把router注入到vue实例中
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
