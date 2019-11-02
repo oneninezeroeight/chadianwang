@@ -15,7 +15,7 @@
         </div>
         <div class="right">
           <span class="s1">
-            <van-icon name="shopping-cart-o" :info="cartlength" />
+            <van-icon name="shopping-cart-o" :info="length" />
           </span>
           <van-icon name="https://m.chadian.com/assets/img/i-selectHead-icon.png" />
         </div>
@@ -57,8 +57,8 @@
 
     <van-goods-action>
       <van-goods-action-icon icon="chat-o">客服</van-goods-action-icon>
-      <van-goods-action-icon icon="cart-o">购物车</van-goods-action-icon>
-      <van-goods-action-button type="warning">加入购物车</van-goods-action-button>
+      <van-goods-action-icon icon="cart-o" @click="gotocart">购物车</van-goods-action-icon>
+      <van-goods-action-button type="warning" @click="addcart()">加入购物车</van-goods-action-button>
       <van-goods-action-button type="danger">立即购买</van-goods-action-button>
     </van-goods-action>
   </div>
@@ -77,6 +77,12 @@ import {
   GoodsActionIcon,
   GoodsActionButton
 } from "vant";
+
+import qs from "qs"; //引入方式
+// Vue.prototype.$qs = Qs; //全局加载
+// this.$qs.stringify(data); //使用方式
+// this.$qs.parse(data); //使用方式
+
 export default {
   components: {
     [Tag.name]: Tag,
@@ -106,23 +112,22 @@ export default {
         ]
       },
       active: 1,
-      list: {}
+      list: {},
+      length: "",
+      gid: ""
     };
   },
-  computed: {
-    cartlength() {
-      return this.$store.getters.cartlength;
-    }
-  },
+
   //生命周期函数
   created() {
     //id是从Home使用转过来的，在这里接收
-    let { id } = this.$route.params;
+    let { id, index } = this.$route.params;
+    this.gid = index;
     window.console.log(id);
 
     this.getData(id);
   },
-
+  computed: {},
   methods: {
     formatPrice() {
       return "¥" + (this.goods.price / 100).toFixed(2);
@@ -130,9 +135,6 @@ export default {
     onClickCart() {
       this.$router.push("cart");
     },
-    // sorry() {
-    //   Toast("暂无后续逻辑~");
-    // },
 
     async getData(id) {
       let data = await this.$axios.get("http://localhost:1907/goods/find", {
@@ -145,7 +147,45 @@ export default {
 
       let datas = data.data;
       this.list = datas[0];
-      window.console.log(this.list);
+      // window.console.log(this.list);
+      this.carlength();
+    },
+    async carlength() {
+      let { data } = await this.$axios.post("http://localhost:1907/goods/cart");
+      // window.console.log(data);
+      this.length = data.length;
+      // window.console.log(this.length);
+    },
+    gotocart() {
+      this.$router.push({ name: "cart", params: {} });
+    },
+    async addcart() {
+      let gid = this.gid;
+      let src = this.list.src;
+      let text = this.list.text;
+      let price = this.list.price.slice(1);
+      let num = 1;
+
+      // window.console.log(goods);
+
+      let { data } = await this.$axios.post(
+        "http://localhost:1907/goods/addcart",
+        qs.stringify({
+          gid,
+          src,
+          text,
+          price,
+          num
+        })
+      );
+
+      // let data = await this.$axios.get("http://localhost:1907/goods/addcart", {
+      //   params: {
+      //     goods
+      //   }
+      // });
+      // window.console.log(goods);
+      window.console.log(data);
     }
   }
 };

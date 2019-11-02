@@ -1,0 +1,38 @@
+{
+    "gid": 1,
+    "src": "https://chadian-img.oss-cn-shanghai.aliyuncs.com/shop/a15632446086029654.jpg?x-oss-process=image/resize,m_fill,h_300,w_300",
+    "text": "云南普洱茶熟茶 糯米香 茶化石 碎银子 糯香茶化石老茶头 一袋500克",
+    "price": "￥82",
+    "fk": "18人付款",
+    "num": 1
+}
+
+
+{
+    "gid": 2,
+    "src": "https://chadian-img.oss-cn-shanghai.aliyuncs.com/product/i15577051770000189.jpeg?x-oss-process=image/resize,m_fill,h_300,w_300",
+    "text": "安溪铁观音熟茶碳培铁观音陈年洞藏老铁十年老铁木质礼盒装250g",
+    "price": "￥158",
+    "fk": "0人付款",
+    "num": 1
+
+}
+
+{
+    "gid": 3,
+    "src": "https://chadian-img.oss-cn-shanghai.aliyuncs.com/shop/a15657526497526662.jpg?x-oss-process=image/resize,m_fill,h_300,w_300",
+    "text": "  福鼎白茶正宗白毫银针特级茶叶散装罐装礼盒装全单芽新茶白豪银针",
+    "price": "￥330",
+    "fk": "0人付款",
+    "num": 1
+}
+
+
+{
+    "gid": 4,
+    "src": "https://chadian-img.oss-cn-shanghai.aliyuncs.com/product/i15657956430007615.jpeg?x-oss-process=image/resize,m_fill,h_300,w_300",
+    "text": "黄金芽2019新茶正宗原产地雨前新茶春茶黄茶白茶茶叶250g罐装",
+    "price": "￥188",
+    "fk": "19人付款",
+    "num": 1
+}

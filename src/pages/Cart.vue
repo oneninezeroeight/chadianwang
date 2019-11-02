@@ -8,7 +8,7 @@
               <div>购物车</div>
               <div>
                 共
-                <span>{{cartlength}}</span>件宝贝
+                <span>{{length}}</span>件宝贝
               </div>
             </div>
           </div>
@@ -18,7 +18,7 @@
       <el-main>
         <div class="list">
           <ul>
-            <li>
+            <li v-for="item in cartlist" :key="item._id">
               <div class="title">
                 <span>
                   <van-checkbox v-model="checked" checked-color="red"></van-checkbox>
@@ -34,154 +34,15 @@
                 </div>
                 <div class="right">
                   <div class="tp">
-                    <img
-                      src="https://chadian-img.oss-cn-shanghai.aliyuncs.com/shop/a15651624130406462.jpg?x-oss-process=image/resize,m_fill,h_100,w_100"
-                      alt
-                    />
+                    <img :src="item.src" alt />
                   </div>
                   <div class="text">
-                    <div class="name">老茶农自家生产的上等优质红茶，500g无公害有机茶，口感好，甜度高。</div>
+                    <div class="name">{{item.text}}</div>
                     <div class="price">
-                      <span>￥</span>
-                      <span>398:00</span>
+                      <span></span>
+                      <span>{{item.num*item.price}}</span>
                       <span>
-                        <van-stepper input-width="20px" button-size="20px" />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="title">
-                <span>
-                  <van-checkbox v-model="checked" checked-color="red"></van-checkbox>
-                </span>
-                <span>
-                  <van-icon name="https://m.chadian.com/assets/img/i-shop-infoLink-icon.png" />
-                </span>
-                <span>老茶农茶店</span>
-              </div>
-              <div class="nav">
-                <div class="left">
-                  <van-checkbox v-model="checked" checked-color="red"></van-checkbox>
-                </div>
-                <div class="right">
-                  <div class="tp">
-                    <img
-                      src="https://chadian-img.oss-cn-shanghai.aliyuncs.com/shop/a15651624130406462.jpg?x-oss-process=image/resize,m_fill,h_100,w_100"
-                      alt
-                    />
-                  </div>
-                  <div class="text">
-                    <div class="name">老茶农自家生产的上等优质红茶，500g无公害有机茶，口感好，甜度高。</div>
-                    <div class="price">
-                      <span>￥</span>
-                      <span>398:00</span>
-                      <span>
-                        <van-stepper input-width="20px" button-size="20px" />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="title">
-                <span>
-                  <van-checkbox v-model="checked" checked-color="red"></van-checkbox>
-                </span>
-                <span>
-                  <van-icon name="https://m.chadian.com/assets/img/i-shop-infoLink-icon.png" />
-                </span>
-                <span>老茶农茶店</span>
-              </div>
-              <div class="nav">
-                <div class="left">
-                  <van-checkbox v-model="checked" checked-color="red"></van-checkbox>
-                </div>
-                <div class="right">
-                  <div class="tp">
-                    <img
-                      src="https://chadian-img.oss-cn-shanghai.aliyuncs.com/shop/a15651624130406462.jpg?x-oss-process=image/resize,m_fill,h_100,w_100"
-                      alt
-                    />
-                  </div>
-                  <div class="text">
-                    <div class="name">老茶农自家生产的上等优质红茶，500g无公害有机茶，口感好，甜度高。</div>
-                    <div class="price">
-                      <span>￥</span>
-                      <span>398:00</span>
-                      <span>
-                        <van-stepper input-width="20px" button-size="20px" />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="title">
-                <span>
-                  <van-checkbox v-model="checked" checked-color="red"></van-checkbox>
-                </span>
-                <span>
-                  <van-icon name="https://m.chadian.com/assets/img/i-shop-infoLink-icon.png" />
-                </span>
-                <span>老茶农茶店</span>
-              </div>
-              <div class="nav">
-                <div class="left">
-                  <van-checkbox v-model="checked" checked-color="red"></van-checkbox>
-                </div>
-                <div class="right">
-                  <div class="tp">
-                    <img
-                      src="https://chadian-img.oss-cn-shanghai.aliyuncs.com/shop/a15651624130406462.jpg?x-oss-process=image/resize,m_fill,h_100,w_100"
-                      alt
-                    />
-                  </div>
-                  <div class="text">
-                    <div class="name">老茶农自家生产的上等优质红茶，500g无公害有机茶，口感好，甜度高。</div>
-                    <div class="price">
-                      <span>￥</span>
-                      <span>398:00</span>
-                      <span>
-                        <van-stepper input-width="20px" button-size="20px" />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="title">
-                <span>
-                  <van-checkbox v-model="checked" checked-color="red"></van-checkbox>
-                </span>
-                <span>
-                  <van-icon name="https://m.chadian.com/assets/img/i-shop-infoLink-icon.png" />
-                </span>
-                <span>老茶农茶店</span>
-              </div>
-              <div class="nav">
-                <div class="left">
-                  <van-checkbox v-model="checked" checked-color="red"></van-checkbox>
-                </div>
-                <div class="right">
-                  <div class="tp">
-                    <img
-                      src="https://chadian-img.oss-cn-shanghai.aliyuncs.com/shop/a15651624130406462.jpg?x-oss-process=image/resize,m_fill,h_100,w_100"
-                      alt
-                    />
-                  </div>
-                  <div class="text">
-                    <div class="name">老茶农自家生产的上等优质红茶，500g无公害有机茶，口感好，甜度高。</div>
-                    <div class="price">
-                      <span>￥</span>
-                      <span>398:00</span>
-                      <span>
-                        <van-stepper input-width="20px" button-size="20px" />
+                        <van-stepper v-model="item.num" input-width="20px" button-size="20px" />
                       </span>
                     </div>
                   </div>
@@ -189,6 +50,12 @@
               </div>
             </li>
           </ul>
+        </div>
+
+        <div class="jies">
+          <van-submit-bar :price="3050" button-text="提交订单" @submit="onSubmit">
+            <van-checkbox v-model="checked">全选</van-checkbox>
+          </van-submit-bar>
         </div>
       </el-main>
       <el-footer>
@@ -203,23 +70,37 @@ export default {
   data() {
     return {
       checked: true,
-      value: 1
+      value: "",
+      length: "",
+      cartlist: [],
+      // 选中的商品数量
+      total: 0,
+      // 商品总价格
+      totalPrice: 0,
+      // 是否已全选
+      AllChecked: false
     };
   },
 
-  methods: {
-    goods() {
-      let goods = {};
-      this.$store.commit("cartlist", goods);
-    }
+  async created() {
+    let { data } = await this.$axios.post("http://localhost:1907/goods/cart");
+    this.cartlist = data;
+    this.length = data.length;
+    window.console.log(this.cartlist);
+    return this.length;
   },
 
-  computed: {
-    cartlength() {
-      this.goods();
-      return this.$store.getters.cartlength;
-    }
+  methods: {
+    // async carlength() {
+    //   let { data } = await this.$axios.post("http://localhost:1907/goods/cart");
+    //   this.cartlist = data;
+    //   this.length = data.length;
+    //   window.console.log(this.cartlist);
+    //   return this.length;
+    // }
   },
+
+  computed: {},
   components: {
     dibu
   }
@@ -341,6 +222,25 @@ export default {
           }
         }
       }
+    }
+
+    .jies {
+      width: 100%;
+      height: 3.125rem;
+      position: absolute;
+      top: 24.9375rem;
+      left: 0.625rem;
+      z-index: 100;
+      .right {
+        height: 3.125rem;
+        .van-checkbox-group {
+          z-index: 100;
+          height: 3.125rem;
+        }
+      }
+    }
+    .van-submit-bar {
+      bottom: 3.8125rem;
     }
   }
 }

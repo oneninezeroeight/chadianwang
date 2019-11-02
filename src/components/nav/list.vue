@@ -11,7 +11,7 @@
     <div class="list">
       <div class="list">
         <ul>
-          <li v-for="item in test" :key="item.id" @click="gotogoods(item._id)">
+          <li v-for="(item,index) in test" :key="item.id" @click="gotogoods(item._id,index)">
             <div class="l-tp">
               <img :src="item.src" alt />
             </div>
@@ -51,8 +51,8 @@ export default {
   },
 
   methods: {
-    gotogoods(id) {
-      this.$router.push({ name: "goods", params: { id } });
+    gotogoods(id, index) {
+      this.$router.push({ name: "goods", params: { id, index } });
       window.console.log(id);
     }
   }

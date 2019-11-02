@@ -4,7 +4,7 @@ import App from './App.vue'
 Vue.config.productionTip = false
 //引入建好的router文件夹
 import router from './router';
-import store from './store';
+// import store from './store';
 
 //引入element-ui
 import ElementUI from 'element-ui';
@@ -27,6 +27,6 @@ Vue.prototype.$axios = axios;
 new Vue({
   //把router注入到vue实例中
   router,
-  store,
+  // store,
   render: h => h(App),
 }).$mount('#app')
