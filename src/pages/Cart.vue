@@ -72,13 +72,8 @@ export default {
       checked: true,
       value: "",
       length: "",
-      cartlist: [],
-      // 选中的商品数量
-      total: 0,
-      // 商品总价格
-      totalPrice: 0,
-      // 是否已全选
-      AllChecked: false
+      cartlist: []
+      
     };
   },
 
